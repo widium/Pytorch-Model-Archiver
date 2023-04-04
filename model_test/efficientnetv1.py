@@ -1,9 +1,20 @@
+# *************************************************************************** #
+#                                                                              #
+#    efficientnetv1.py                                                         #
+#                                                                              #
+#    By: Widium <ebennace@student.42lausanne.ch>                               #
+#    Github : https://github.com/widium                                        #
+#                                                                              #
+#    Created: 2023/04/04 16:55:46 by Widium                                    #
+#    Updated: 2023/04/04 16:55:46 by Widium                                    #
+#                                                                              #
+# **************************************************************************** #
+
 from torch.nn import Module
 from torch.nn import Sequential
 from torch.nn import Dropout, Linear, Flatten
 from torch import Tensor
 
-from torchinfo import summary
 from torchvision.models import EfficientNet_B0_Weights
 from torchvision.models import efficientnet_b0
 
