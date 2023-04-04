@@ -1,6 +1,6 @@
 # *************************************************************************** #
 #                                                                              #
-#    importing.py                                                              #
+#    loading.py                                                                #
 #                                                                              #
 #    By: Widium <ebennace@student.42lausanne.ch>                               #
 #    Github : https://github.com/widium                                        #

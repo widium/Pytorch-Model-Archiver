@@ -34,9 +34,22 @@ save_module(
 [INFO] : Entire Custom Module Saved Successfully in [model_test]
 ~~~
 > This Message : `[WARNING] : Skipping saving non-serializable attribute : [T_destination]` Meaning we can't serialized `T_destination` attribute because he track the device (CPU or GPU) where a tensor should be moved when calling the `to()` method of `Module` class. 
+~~~bash
+model_test
+├── efficientnetv1.py
+└── module_data.pth
 
+1 directory, 2 files
+~~~
 ### Loading with same format 
 - example here [loading.ipynb](/loading.ipynb)
+~~~bash
+model_test
+├── efficientnetv1.py
+└── module_data.pth
+
+1 directory, 2 files
+~~~
 ~~~python
 from archive.loading import load_module
 
