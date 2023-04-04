@@ -33,7 +33,7 @@ save_module(
 [INFO] : Saving [15] Attributes of [EfficientNetFoodClassifier] in [model_test/module_data.pth]
 [INFO] : Entire Custom Module Saved Successfully in [model_test]
 ~~~
-> This Message : `[WARNING] : Skipping saving non-serializable attribute : [T_destination]` Meaning we cant serialized `T_destination` attribute because he track the device (CPU or GPU) where a tensor should be moved when calling the `to() `method of `Module` class. 
+> This Message : `[WARNING] : Skipping saving non-serializable attribute : [T_destination]` Meaning we can't serialized `T_destination` attribute because he track the device (CPU or GPU) where a tensor should be moved when calling the `to()` method of `Module` class. 
 
 ### Loading with same format 
 - example here [loading.ipynb](/loading.ipynb)
