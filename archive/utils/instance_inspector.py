@@ -30,15 +30,20 @@ def get_instance_constructor_args(instance : Any)->Dict:
         constructor_arguments = inspect.signature(constructor_method)
         constructor_parameters = constructor_arguments.parameters
         
-        constructor_parameter_values = dict()
+        constructor_arguments_values = dict()
         
         for name in constructor_parameters:
             if name == 'self':
                 continue
-                
-            constructor_parameter_values[name] = getattr(instance, name)
+            
+            argument_value = getattr(instance, name)
+            
+            if is_serializable(object=argument_value):
+                constructor_arguments_values[name] = getattr(instance, name)
+            else :
+                raise TypeError(f"[ERROR] : argument [{name}:{argument_value}] is not serializable...")
         
-        return (constructor_parameter_values)
+        return (constructor_arguments_values)
 
 # **************************************************************************** #
 
