@@ -18,19 +18,7 @@ from torch import Tensor
 from torchvision.models import EfficientNet_B0_Weights
 from torchvision.models import efficientnet_b0
 
-def frozen_module_parameters(module : Module)->Module:
-    """Frozen all Module parameters
-
-    Args:
-        module (Module): Module
-
-    Returns:
-        Module: New Module with all requires_grad = False
-    """
-    for parameter in module.parameters():
-        parameter.requires_grad = False
-    
-    return (module)
+from frozen import frozen_module_parameters
 
 # Get the Weight of Model `DEFAULT` == last best version
 weights = EfficientNet_B0_Weights.DEFAULT

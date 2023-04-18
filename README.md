@@ -21,13 +21,15 @@ from archive.saving import save_module
 save_module(
     module_instance=model, 
     model_name="model_test",
-    class_source_code_file_path="efficientnetv1.py"
+    source_code_files=["efficientnetv1.py", "frozen.py"] # The first path must be the class definition
 )
 ~~~
 - Output Log
 ~~~text
 [INFO] : Create [model_test] directory
 [INFO] : Source file [efficientnetv1.py] saved Successfuly here : [model_test/efficientnetv1.py]
+[INFO] : The main class source code is [model_test/efficientnetv1.py]
+[INFO] : Source file [frozen.py] saved Successfuly here : [model_test/frozen.py]
 [WARNING] : Skipping saving non-serializable attribute : [T_destination]
 [INFO] : Saving [5,292,391] Parameters in [model_test/module_data.pth]
 [INFO] : Saving [15] Attributes of [EfficientNetFoodClassifier] in [model_test/module_data.pth]

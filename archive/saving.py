@@ -10,6 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
+from typing import List
+
 import torch
 from torch.nn import Module
 
@@ -28,7 +30,7 @@ from .utils.module_utils import count_parameters
 def save_module(
     module_instance : Module,
     model_name : str,
-    class_source_code_file_path : str,
+    source_code_files : List[str],
     saved_path : str = "."
 )->None:
     """
@@ -42,7 +44,7 @@ def save_module(
     Args:
         module_instance (Module): custom Pytorch module instance
         model_name (str): name of saved directory
-        class_source_code_file_path (str): python file with class definition
+        source_code_files (List[str]): List of python file with source code of class definition The first path Must the Class definition !
         saved_path (str, optional): path to create the directory. Defaults to ".".
     """
     module_directory = Path(saved_path) / model_name
@@ -50,11 +52,15 @@ def save_module(
     
     create_directory(dir_path=module_directory)
     
-    # Duplicate the source code file into archive directory
-    class_source_code_path = duplicate_file_to_destination(
-                source=class_source_code_file_path,
-                destination=module_directory
-    )
+    for index, path in enumerate(source_code_files):
+        # Duplicate the source code file into archive directory
+        duplicated_filepath = duplicate_file_to_destination(
+                    source=path,
+                    destination=module_directory
+        )
+        if (index == 0):
+            class_source_code_path = duplicated_filepath
+            print(f"[INFO] : The main class source code is [{class_source_code_path}]")
     
     ## ---------------------- Get and Store the instance data ---------------------- ##
     
