@@ -60,7 +60,11 @@ def save_module(
         )
         if (index == 0):
             class_source_code_path = duplicated_filepath
-            print(f"[INFO] : The main class source code is [{class_source_code_path}]")
+    
+    ## saved_path/model_name/source_code_file ---> model_name/source_code_file for export purpose
+    class_source_code_path = Path(class_source_code_path.parts[-2]) / Path(class_source_code_path.parts[-1])
+    
+    print(f"[INFO] : The main class source code is [{class_source_code_path}]")
     
     ## ---------------------- Get and Store the instance data ---------------------- ##
     
