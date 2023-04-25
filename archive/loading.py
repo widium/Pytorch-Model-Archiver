@@ -57,7 +57,7 @@ def load_module(module_path: str) -> Module:
     
     ## ----------------------------- Load all Module Instance Data ----------------------------- ## 
     
-    module_data = torch.load(f=module_data_file)
+    module_data = torch.load(f=module_data_file, map_location="cpu")
         
     class_name = module_data["class_name"]
     class_arguments = module_data["class_constructor_arguments"]
